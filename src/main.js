@@ -30,7 +30,8 @@ document.querySelector('#slides').innerHTML = slides.map(slide => `
 
 const contentSlides = slides.filter(slide => !slide.kind?.includes('title-slide'));
 const deck = new Reveal({
-  width:1280, height:720, margin:0.025, hash:true, history:true,
+  // Leave breathing room around the slide in browsers and on projectors.
+  width:1280, height:720, margin:0.1, hash:true, history:true,
   center:false, transition:'fade', backgroundTransition:'none',
   controls:true, controlsTutorial:false, progress:true,
   slideNumber: slide => {
