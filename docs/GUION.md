@@ -4,7 +4,7 @@
 
 | Pantalla | Tipo | Diapositiva | Tiempo |
 | --- | --- | --- | --- |
-| 1 | Título | De programador fullstack a programador cuántico | 0:00–0:20 |
+| 1 | Título | De desarrollador fullstack a programador cuántico: ¿qué cambia? | 0:00–0:20 |
 | 2 | Título | Ofertas y roles de hoy | 0:20–0:25 |
 | 3 | Contenido | Qué se pide hoy a un desarrollador fullstack | 0:25–2:25 |
 | 4 | Contenido | Software clásico dentro del sector cuántico | 2:25–4:25 |
@@ -27,7 +27,7 @@
 
 Las preguntas breves al público están incluidas en el tiempo de cada diapositiva. Si no hay respuesta, continuar. Los separadores anuncian el siguiente bloque y permiten una pausa breve. Las diapositivas de contenido 10, 11 y 12 forman el bloque de desarrollo, con dos minutos cada una; la última retoma los nombres y bucles de los dos diagramas anteriores.
 
-## 1. De programador fullstack a programador cuántico
+## 1. De desarrollador fullstack a programador cuántico: ¿qué cambia?
 
 0:00–0:20. Mi punto de partida es el desarrollo de software y mi investigación en computación cuántica. La pregunta es qué roles podemos ocupar hoy y qué software necesitaremos para coordinar recursos clásicos y cuánticos. No presentar una transición automática ni una promesa de empleo.
 
@@ -49,7 +49,7 @@ Las preguntas breves al público están incluidas en el tiempo de cada diapositi
 
 ## 6. Los roles se distribuyen por capas
 
-6:25–7:25. Este mapa es una síntesis de las ofertas, no una taxonomía oficial ni una escala de prestigio. Las fronteras se solapan. Un backend puede requerir alfabetización cuántica sin diseñar algoritmos. Un investigador también escribe software. El rol se distingue por el problema que resuelve y por cómo valida su trabajo.
+6:25–7:25. Un minuto, con avances breves. Entrada: producto y APIs. Primer avance: orquestación. Segundo avance: compilación. Tercer avance: algoritmos e investigación. Cada fila muestra la responsabilidad y, debajo en texto secundario, el conocimiento que pesa. La marca lateral señala la capa que se explica y las anteriores permanecen visibles. Último avance: mostrar la conclusión sobre equipo y especialización. Este mapa es una síntesis de las ofertas, no una taxonomía oficial ni una escala de prestigio. Las fronteras se solapan. Un backend puede requerir alfabetización cuántica sin diseñar algoritmos. Un investigador también escribe software. El rol se distingue por el problema que resuelve y por cómo valida su trabajo.
 
 ## 7. Software para un sistema híbrido
 
@@ -57,7 +57,7 @@ Las preguntas breves al público están incluidas en el tiempo de cada diapositi
 
 ## 8. Problemas para explorar con cómputo híbrido
 
-7:30–9:30. Ejemplos sin prometer superioridad industrial actual. Una rutina variacional combina mediciones cuánticas y optimización clásica. Formular un problema de optimización es distinto de demostrar ventaja con QAOA. Evaluar circuitos permite comparar simulación y ejecución real. Hace falta preparar entradas, ejecutar trabajos y analizar salidas. La selección del acelerador debe tener evidencia y una comparación clásica.
+7:30–9:30. Tres tarjetas, una por problema. En cada tarjeta, recorrer primero el trabajo clásico y después la subrutina cuántica candidata. Ejemplos sin prometer superioridad industrial actual. Una rutina variacional combina mediciones cuánticas y optimización clásica. Formular un problema de optimización es distinto de demostrar ventaja con QAOA. Evaluar circuitos permite comparar simulación y ejecución real. Hace falta preparar entradas, ejecutar trabajos y analizar salidas. La selección del acelerador debe tener evidencia y una comparación clásica.
 
 ## 9. La evolución hacia sistemas heterogéneos
 
@@ -97,7 +97,7 @@ Las preguntas breves al público están incluidas en el tiempo de cada diapositi
 
 ## 18. Lo que se contrata hoy y mi visión del futuro
 
-21:40–23:40. Mantener dos minutos, con avances breves. Entrada: las ofertas observadas hoy aparecen centradas; explicar las responsabilidades de equipos especializados. Primer avance: esas ofertas se desplazan a la izquierda y aparece la visión de evolución a la derecha. Comparar ambas columnas; sus elementos describen dos perspectivas, no correspondencias exactas entre puestos. Segundo avance: mostrar la conclusión sobre orquestación y distinguir evidencia actual de proyección. Tercer avance: la comparación desaparece y aparecen una desarrolladora y un desarrollador centrados, con la mujer primero. Cuarto avance: ambos se desplazan a la izquierda y aparecen juntos el apretón de manos y el robot a su derecha. Quinto avance: aparecen juntas las dos líneas «Hagamos las paces con los robots. Llegaron para quedarse». Cada elemento permanece visible al mostrar el siguiente; al retroceder se ocultan en orden inverso. Es un cierre humorístico que retoma la diapositiva del ciclo de desarrollo e invita a trabajar con asistentes de IA conservando criterio y responsabilidad. Una JD de orquestación senior conecta ejecución híbrida e infraestructura HPC. Mi proyección es ampliar el alcance de esta integración. Hará falta software para decidir qué ejecutar, dónde y cómo evaluar resultados. No prometer fechas ni crecimiento de empleo sin datos. Infraestructura e investigación siguen siendo necesarias.
+21:40–23:40. Mantener dos minutos, con avances breves. Entrada: las ofertas observadas hoy aparecen centradas; explicar las responsabilidades de equipos especializados. Primer avance: esas ofertas se desplazan a la izquierda y aparece la visión de evolución a la derecha. Comparar ambas columnas; sus elementos describen dos perspectivas, no correspondencias exactas entre puestos. Segundo avance: mostrar la conclusión sobre orquestación y distinguir evidencia actual de proyección. Tercer avance: la comparación desaparece y aparecen una desarrolladora y un desarrollador centrados, con la mujer primero. Cuarto avance: ambos se desplazan a la izquierda y aparecen juntos el apretón de manos y el robot a su derecha. Quinto avance: aparecen juntas las dos líneas «Hagamos las paces con los robots. Llegaron para quedarse». Cada elemento permanece visible al mostrar el siguiente; al retroceder se ocultan en orden inverso. Es un cierre humorístico que retoma la diapositiva del ciclo de desarrollo e invita a trabajar con asistentes de IA conservando criterio y responsabilidad. Una JD de orquestación senior conecta ejecución híbrida e infraestructura HPC. Mi proyección es ampliar el alcance de esta integración. Hará falta software para decidir qué ejecutar, dónde y cómo evaluar resultados, e integrar corrección de errores y calibración del hardware. Estas funciones se reparten entre orquestación, runtime y control: un planificador general no ejecuta por sí solo todos los bucles de control en tiempo real. La arquitectura de referencia de IBM describe decodificación de corrección de errores, calibración de qubits y monitoreo del dispositivo; estas funciones ya existen en sistemas y experimentos actuales, con madurez y alcance distintos. La proyección es una integración más amplia del conjunto, no presentar corrección y calibración como capacidades exclusivamente futuras. No prometer fechas ni crecimiento de empleo sin datos. Infraestructura e investigación siguen siendo necesarias.
 
 ## 19. Una ruta según el rol que quieres ocupar
 

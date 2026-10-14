@@ -26,7 +26,7 @@ Las páginas dinámicas de algunas JD se contrastaron con su API pública de con
 - Enlace: https://www.quantum-latino.com/
 - Consulta: 2026-10-13
 - Alcance: Conferencia híbrida del 21 al 23 de octubre de 2026 en Medellín/Envigado, Colombia.
-- Diapositivas: De programador fullstack a programador cuántico
+- Diapositivas: De desarrollador fullstack a programador cuántico: ¿qué cambia?
 
 ### Perfil fullstack
 
@@ -156,7 +156,8 @@ Los dos diagramas de proceso son HTML/CSS nativo y reutilizable, con tokens y ut
 - Enlace: https://research.ibm.com/blog/quantum-centric-supercomputing-system-reference-architecture
 - Publicación: 2026-03-12. Consulta: 2026-10-14 (en comentarios del código, no visible en la diapositiva).
 - Alcance: arquitectura de referencia con aplicaciones, middleware, orquestación, APIs e integración HPC de CPU/GPU/QPU.
-- Diapositiva: Datacenters del futuro (contenido 7).
+- Diapositivas: Datacenters del futuro (contenido 7); Lo que se contrata hoy y mi visión del futuro (contenido 13).
+- Corrección de errores y calibración: las secciones Hardware infrastructure y Vertically integrated solutions describen decodificación, calibraciones y monitoreo. Se distinguen las funciones de runtime y control del planificador general de trabajos. No se presentan como capacidades exclusivamente futuras.
 - Diagrama original: https://research-website-prod-cms-uploads.s3.us.cloud-object-storage.appdomain.cloud/QCSC_Architecture_V12_1920x1080_d8216f00a9.png
 - La casa sigue siendo una ilustración creada para la charla. La referencia a IBM contextualiza la dirección de integración; no atribuye la imagen a IBM ni implica afiliación.
 

@@ -1,6 +1,6 @@
 # Quantum Latino 2026
 
-Presentación en español: **De programador fullstack a programador cuántico**.
+Presentación en español: **De desarrollador fullstack a programador cuántico: ¿qué cambia?**.
 Usa Reveal.js y el paquete público **revelab** desde npm, sin copiar el código del proyecto hermano revelap.
 
 ## Ejecutar

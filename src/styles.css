@@ -37,12 +37,15 @@
 .reveal table.table-research { margin: 0; width: 100%; font-size: 27px; line-height: 1.25; }
 .reveal table.table-research thead th { padding: 15px 18px; font-size: 25px; }
 .reveal table.table-research tbody td { padding: 19px 18px; border-bottom: 1px solid var(--rlab-color-border); }
-.role-table td:first-child { width: 25%; font-weight: 700; }
-.reveal table.role-table tbody td { padding-top: 12px; padding-bottom: 12px; }
-.problem-table td:first-child { width: 26%; font-weight: 700; }
-.problem-label { display: flex; align-items: center; gap: 14px; }
-.problem-icon { flex: 0 0 50px; font-size: 46px; line-height: 1; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; text-align: center; }
-.reveal table.problem-table tbody td { padding-top: 14px; padding-bottom: 14px; }
+.problem-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.reveal .problem-card { display: flex; flex-direction: column; border-style: solid; border-width: 1px; overflow: hidden; }
+.reveal .problem-card .card-header { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 145px; padding: 12px 16px; text-align: center; }
+.problem-icon { font-size: 46px; line-height: 1; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }
+.reveal .problem-card h3 { font-size: 27px; line-height: 1.15; margin: 8px 0 0; }
+.reveal .problem-card .card-body { flex: 1; justify-content: flex-start; gap: 16px; padding: 16px; }
+.reveal .problem-card .card-body > div { width: 100%; }
+.reveal .problem-card h4 { font-size: 20px; line-height: 1.2; margin: 0 0 7px; color: var(--rlab-color-muted); }
+.reveal .problem-card p { font-size: 25px; line-height: 1.25; }
 .lifecycle-comparison { display: grid; grid-template-columns: 1fr 1.2fr; gap: 68px; text-align: left; }
 /* Keep fullstack centered through the joke; make room when quantum appears. */
 .lifecycle-fullstack { transform: translateX(calc(60% + 34px)); transition: transform 450ms ease; }
@@ -123,6 +126,7 @@
 .reveal .future-points { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--rlab-color-border); }
 .reveal .future-points li { display: flex; align-items: center; min-height: 80px; margin: 0; padding: 12px 0; border-bottom: 1px solid var(--rlab-color-border); font-size: 28px; }
 .future-points li:last-child { border-bottom: 0; }
+.reveal .future-vision .future-points li { min-height: 56px; padding: 8px 0; font-size: 26px; }
 .reveal .future-summary { text-align: left; }
 .future-summary strong { display: block; font-size: 31px; line-height: 1.2; }
 .future-summary span { display: block; margin-top: 5px; font-size: 25px; line-height: 1.25; }
@@ -130,12 +134,12 @@
 .route-rows .route-row { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 32px; min-height: 108px; padding: 12px 18px 12px 25px; border-left: 4px solid transparent; }
 .reveal .route-row h3 { margin: 0; font-size: 31px; line-height: 1.15; }
 .reveal .route-row p { font-size: 28px; line-height: 1.3; }
-.route-rows .route-product,
-.route-rows:has(.route-software.visible) .route-software,
-.route-rows:has(.route-research.visible) .route-research { border-left-color: var(--rlab-color-accent); }
-.route-rows:has(.route-software.visible) .route-product,
-.route-rows:has(.route-research.visible) .route-software { border-left-color: transparent; }
-#ruta:has(.route-summary.visible) .route-row { border-left-color: transparent; }
+.route-rows > .route-row:first-child,
+.route-rows > .route-row.current-fragment { border-left-color: var(--rlab-color-accent); }
+.route-rows:has(> .route-row.fragment.visible) > .route-row:first-child { border-left-color: transparent; }
+.roles-rows { gap: 12px; }
+.roles-rows .route-row { min-height: 96px; padding-top: 10px; padding-bottom: 10px; }
+.reveal .roles-rows .role-knowledge { margin-top: 6px; font-size: 23px; color: var(--rlab-color-muted); }
 .reveal .route-question { font-size: 30px; text-align: center; }
 @media (prefers-reduced-motion: reduce) {
   .peace-humans, .peace-emojis .fragment, .peace-message.fragment, .future-main.fragment, .future-peace.fragment, .future-today, .future-vision.fragment, .future-summary.fragment, .route-row.fragment, .route-summary.fragment, .route-question.fragment { transition: none; }
@@ -156,7 +160,7 @@
 .reveal:has(.slides > .title-slide.present) .slide-number { display: none !important; }
 .reveal .cover h1 { font-size: 65px; line-height: 1.14; margin: 0; }
 .reveal .event-name { color: var(--rlab-color-muted); font-size: 24px; line-height: 1.2; }
-.reveal .cover-subtitle { color: var(--rlab-color-text); font-size: 31px; }
+.reveal .cover-subtitle { color: var(--rlab-color-accent); font-size: 40px; }
 .speaker { margin-top: 35px; display: flex; flex-direction: column; gap: 12px; font-size: 29px; }
 .speaker span { font-size: 23px; color: var(--rlab-color-muted); }
 .reveal .closing h2 { font-size: 60px; margin: 0; line-height: 1.13; }
