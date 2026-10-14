@@ -19,6 +19,21 @@ npm run preview
 
 Publicar el contenido de dist/ en la raíz de un servidor estático. No hace falta conectarse a servicios cuánticos: toda la charla funciona localmente después de instalar las dependencias.
 
+## GitHub Pages
+
+El workflow `.github/workflows/gh-pages.yml` instala las dependencias con `npm ci`, construye la presentación y publica únicamente `dist/` con las acciones oficiales de GitHub Pages. Se ejecuta al hacer push a `main` o manualmente desde Actions. Usa Node.js 22 y obtiene la ruta base de Pages para que los scripts, estilos e imágenes funcionen bajo el nombre del repositorio.
+
+En GitHub, abrir **Settings → Pages → Build and deployment → Source** y seleccionar **GitHub Actions**. Después de subir el workflow, el despliegue aparecerá en Actions. La dirección prevista es https://xthecapx.github.io/quantum-latino/.
+
+Para comprobar localmente la misma ruta:
+
+```bash
+npm run build -- --base /quantum-latino/
+npm run preview -- --base /quantum-latino/
+```
+
+Abrir `http://localhost:4173/quantum-latino/`. Referencia: [despliegue de Vite en GitHub Pages](https://vite.dev/guide/static-deploy.html#github-pages).
+
 ## Presentar
 
 - Flechas o espacio: avanzar.
