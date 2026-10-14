@@ -1,0 +1,19 @@
+{
+  "name": "quantum-latino-2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Charla en español sobre roles de software y computación híbrida para Quantum Latino.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "revelab": "^0.3.0",
+    "reveal.js": "^6.0.2"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}

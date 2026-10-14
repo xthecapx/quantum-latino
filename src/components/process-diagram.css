@@ -1,0 +1,182 @@
+/* Extension candidate for revelab: theme-aware process diagrams.
+   Depends on revelab's .df-box and .bg-* utilities.
+   No fixed colors, SVG, canvas, images or DOM measurements. */
+.process-diagram {
+  --pd-line-color: var(--rlab-color-muted);
+  --pd-line-width: 2px;
+  --pd-node-padding: 14px;
+  --pd-node-font-size: 24px;
+  --pd-detail-font-size: 21px;
+  --pd-label-font-size: 24px;
+  width: 100%;
+  color: var(--rlab-color-text);
+}
+.process-diagram .pd-node {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 84px;
+  padding: var(--pd-node-padding);
+  font-size: var(--pd-node-font-size);
+  line-height: 1.15;
+  border-color: var(--rlab-color-border);
+  border-radius: var(--rlab-radius-md);
+}
+.process-diagram .pd-node strong { display: block; }
+.process-diagram .pd-node small {
+  display: block;
+  font-size: var(--pd-detail-font-size);
+  line-height: 1.2;
+  margin-top: 7px;
+}
+.process-diagram .pd-group {
+  min-width: 0;
+  border: 1px dashed var(--rlab-color-border);
+  border-radius: var(--rlab-radius-md);
+  padding: 20px;
+}
+.process-diagram .pd-group-label {
+  margin: 0 0 20px;
+  font-size: var(--pd-label-font-size);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+.pd-connector {
+  display: block;
+  position: relative;
+  justify-self: stretch;
+  align-self: center;
+  width: 100%;
+  height: var(--pd-line-width);
+  background: var(--pd-line-color);
+}
+.pd-connector::after, .pd-connector--both::before {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 8px solid var(--pd-line-color);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.pd-connector--both::before {
+  left: -1px;
+  right: auto;
+  transform: translateY(-50%) rotate(180deg);
+}
+.pd-connector--left { transform: rotate(180deg); }
+.pd-connector--down {
+  justify-self: center;
+  align-self: stretch;
+  width: var(--pd-line-width);
+  height: 100%;
+}
+.pd-connector--down::after {
+  right: auto;
+  top: auto;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid var(--pd-line-color);
+  border-bottom: none;
+}
+.pd-connector--down.pd-connector--both::before {
+  left: 50%;
+  right: auto;
+  top: -1px;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid var(--pd-line-color);
+  border-top: none;
+}
+.pd-connector--dashed {
+  background: none;
+  border-left: var(--pd-line-width) dashed var(--pd-line-color);
+}
+.pd-fullstack {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) 40px minmax(0, 2.1fr);
+  align-items: center;
+  gap: 10px;
+}
+.pd-initial-flow {
+  display: grid;
+  grid-template-rows: 88px 24px 88px;
+}
+.pd-cycle {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr);
+  grid-template-rows: 102px 28px 102px;
+  padding-left: 20px;
+  gap: 0;
+}
+.pd-cycle-analysis { grid-area: 1 / 1; }
+.pd-cycle-a { grid-area: 1 / 2; }
+.pd-cycle-design { grid-area: 1 / 3; }
+.pd-cycle-b { grid-area: 1 / 4; }
+.pd-cycle-build { grid-area: 1 / 5; }
+.pd-cycle-down { grid-area: 2 / 5; }
+.pd-cycle-deploy { grid-area: 3 / 1; }
+.pd-cycle-d { grid-area: 3 / 2; }
+.pd-cycle-test { grid-area: 3 / 3; }
+.pd-cycle-c { grid-area: 3 / 4; }
+.pd-cycle-turn {
+  grid-area: 3 / 5;
+  justify-self: start;
+  align-self: start;
+  width: 50%;
+  height: 50%;
+  border-right: var(--pd-line-width) solid var(--pd-line-color);
+  border-bottom: var(--pd-line-width) solid var(--pd-line-color);
+  border-bottom-right-radius: var(--rlab-radius-md);
+}
+.pd-cycle-return {
+  position: absolute;
+  top: 51px;
+  bottom: 51px;
+  left: 0;
+  width: 20px;
+  border: var(--pd-line-width) solid var(--pd-line-color);
+  border-right: none;
+  border-radius: var(--rlab-radius-md) 0 0 var(--rlab-radius-md);
+}
+.pd-cycle-return::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -1px;
+  border-left: 8px solid var(--pd-line-color);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.process-diagram .pd-loop-label {
+  margin: 16px 0 0;
+  font-size: 20px;
+  color: var(--rlab-color-muted);
+  line-height: 1.2;
+  text-align: center;
+}
+.pd-quantum {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1.2fr) 50px minmax(0, 1fr);
+  grid-template-rows: 84px 28px 108px 35px 84px;
+  align-items: stretch;
+}
+.pd-q-deploy { grid-area: 1 / 3; }
+.pd-q-deploy-link { grid-area: 2 / 3; }
+.pd-q-simulate { grid-area: 3 / 1; }
+.pd-q-simulate-link { grid-area: 3 / 2; }
+.pd-q-theory { grid-area: 3 / 3; }
+.pd-q-execute-link { grid-area: 3 / 4; }
+.pd-q-execute { grid-area: 3 / 5; }
+.pd-q-analysis-sim { grid-area: 4 / 1; }
+.pd-q-analysis-theory { grid-area: 4 / 3; }
+.pd-q-analysis-exec { grid-area: 4 / 5; }
+.pd-q-analysis { grid-area: 5 / 1 / 6 / -1; background: var(--rlab-color-bg-light); }
