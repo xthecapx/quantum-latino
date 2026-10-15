@@ -1,5 +1,29 @@
 export const reviewedOn = '2026-10-13';
 export const sources = {
+  "quantumRoutes": {
+    "label": "Qiskit · Optimización de rutas",
+    "url": "https://qiskit-community.github.io/qiskit-optimization/tutorials/06_examples_max_cut_and_tsp.html",
+    "reviewedOn": "2026-10-15",
+    "detail": "Ejemplo educativo del problema del viajante: buscar un recorrido corto que visite varias ciudades. La formulación y su resolución con métodos cuánticos no constituyen una demostración de ventaja práctica frente a métodos clásicos."
+  },
+  "mathRandom": {
+    "label": "JavaScript · Math.random",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random",
+    "reviewedOn": "2026-10-15",
+    "detail": "Math.random genera números pseudoaleatorios. Su API no permite seleccionar ni reiniciar la semilla. La demo de la charla usa un generador propio con semilla explícita, no la implementación interna de Math.random."
+  },
+  "quantumCoin": {
+    "label": "IBM · Medición de un qubit",
+    "url": "https://quantum.cloud.ibm.com/learning/en/courses/use-a-qc-today/quantum-mechanics-basics",
+    "reviewedOn": "2026-10-15",
+    "detail": "Preparación de estados y medición de un qubit. El estado ideal con amplitudes iguales produce cero o uno con probabilidades iguales, sin imponer conteos exactos en muestras finitas."
+  },
+  "basicSimulator": {
+    "label": "IBM · Simulación y semilla",
+    "url": "https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.providers.basic_provider.BasicSimulator",
+    "reviewedOn": "2026-10-15",
+    "detail": "BasicSimulator documenta seed_simulator para la generación de muestras. La gráfica de esta charla usa un simulador mínimo local en JavaScript de Ry(theta)|0>, sin ruido, y no una ejecución de Qiskit ni una medición de hardware real."
+  },
   "epam": {
     "label": "Perfil fullstack",
     "url": "https://careers.epam.com/en/vacancy/senior-full-stack-engineer-python-fastapi-react-blty4l4no3k6qt1i1x2_en",

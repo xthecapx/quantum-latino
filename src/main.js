@@ -6,8 +6,15 @@ import 'reveal.js/theme/serif.css';
 import 'revelab/dist/revelab.css';
 import './styles.css';
 import './components/process-diagram.css';
-import { slides } from './slides.js';
+import './story.css';
+import { slides as referenceSlides } from './slides.js';
+import { slides as exampleSlides } from './slides-example.js';
+import { initCoinDemos, coinMarkup, lanzarCinco } from './components/coin.js';
 import { sourceLinks, sourceReviewLabel, sources } from './sources.js';
+
+const isReference = new URLSearchParams(window.location.search).get('version') === 'referencia';
+const slides = isReference ? referenceSlides : exampleSlides;
+document.body.classList.toggle('example-deck', !isReference);
 
 function renderReferences(slide) {
   if (!slide.sources.length || slide.kind?.includes('title-slide')) return '';
@@ -44,3 +51,16 @@ const deck = new Reveal({
 });
 await deck.initialize();
 window.deck = deck;
+if (!isReference) {
+  initCoinDemos(document.querySelector('#slides'), deck);
+  // PDF: conservar una salida de la demostración sin depender de hacer clic.
+  const staticDemo = () => {
+    const output = document.querySelector('[data-seed-output]');
+    if (!output || output.children.length) return;
+    for (let n = 1; n <= 5; n++) {
+      output.insertAdjacentHTML('beforeend', `<div class="seed-row"><span class="seed-row-label">Ejecución ${n}</span><div class="coin-sequence">${lanzarCinco(42).map(value => coinMarkup(value, 'coin-small')).join('')}</div></div>`);
+    }
+  };
+  if (new URLSearchParams(window.location.search).has('print-pdf')) staticDemo();
+  window.addEventListener('beforeprint', staticDemo);
+}

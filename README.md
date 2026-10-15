@@ -1,75 +1,85 @@
 # Quantum Latino 2026
 
-Presentación en español: **De desarrollador fullstack a programador cuántico: ¿qué cambia?**.
-Usa Reveal.js y el paquete público **revelab** desde npm, sin copiar el código del proyecto hermano revelap.
+**De desarrollador fullstack a programador cuántico: ¿qué cambia?**
 
-## Ejecutar
+Presentación en español con Reveal.js y el paquete público Revelab. La nueva versión explica el desarrollo de una aplicación de cara o sello: interfaz, backend, integración fullstack, despliegue y operación, semilla pseudoaleatoria, módulo cuántico y desafíos de un sistema híbrido.
+
+## Ejecutar y elegir versión
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrir la dirección local que muestra Vite. Para generar una versión estática:
+Abrir la dirección local que muestra Vite:
+
+- **Nueva presentación:** `/`.
+- **Versión anterior completa:** `/?version=referencia`.
+- **Demo de la semilla:** `/#/semilla`.
+- **Imprimir la nueva versión:** `/?print-pdf`.
+- **Imprimir la anterior:** `/?version=referencia&print-pdf`.
+
+La nueva versión tiene 18 pantallas: portada sin tiempo de exposición, un separador, 15 de contenido y cierre. Son 25 minutos de charla y 5 adicionales de preguntas. Se omite la introducción personal y se comienza con aplicaciones. El separador «Veamos un ejemplo» introduce el problema de simular una moneda con palabras simples.
+
+La anterior conserva sus 20 pantallas, orden, notas, avances y contenido. `src/slides.js` permanece intacto. También se conservan `base.pdf`, `jd.pdf`, el guion y las fuentes anteriores. Su README original está en `docs/REFERENCIA-README.md`.
+
+## Presentar
+
+- Flechas o espacio: avanzar, incluyendo los elementos progresivos.
+- Esc: vista general.
+- S: notas del ponente y cronómetro. Permitir ventanas emergentes.
+- F: pantalla completa.
+- B: ocultar la presentación momentáneamente.
+
+El título, la tipografía serif y los colores de Revelab se mantienen. Las nuevas diapositivas usan diagramas HTML/CSS editables, una interfaz de moneda y poco texto. La explicación detallada y las fuentes están en las notas. Los diagramas completos del ciclo clásico (base, p. 22) y del proceso cuántico (base, p. 38) forman parte de la nueva charla, conservando su estructura.
+
+## Demostración de la semilla
+
+En la diapositiva “La semilla determina la secuencia”:
+
+1. Dejar la semilla en 42 y pulsar **Ejecutar**.
+2. Repetir hasta completar cinco ejecuciones, o usar **Ejecutar 5 veces**.
+3. Las cinco filas muestran `Cara, Cara, Sello, Cara, Cara`.
+4. Cambiar la semilla a 7 y ejecutar: `Cara, Sello, Sello, Sello, Cara`.
+
+Cada ejecución reinicia el generador una vez y produce cinco lanzamientos. El estado evoluciona dentro de la secuencia. No se reinicia antes de cada lanzamiento. La rutina es didáctica y no reproduce la implementación de `Math.random()`.
+
+El código visible se importa desde el mismo archivo que ejecuta la demo, en formato original para conservar su legibilidad después del build. La impresión incluye cinco secuencias sin requerir interacción previa.
+
+Los botones de las diapositivas del ejemplo y de frontend funcionan localmente: la moneda sube y gira durante 2,6 segundos mientras aparece «Esperando el resultado». Al caer se lee «Resultado: Cara» o «Resultado: Sello». La demora representa la espera del backend y no hace una llamada de red real. No se permiten lanzamientos simultáneos y una tirada pendiente se cancela al salir de la diapositiva. El control «Animar» permite apagar el movimiento sin quitar la espera. La demo lo activa inicialmente para mostrar el lanzamiento solicitado. Los diagramas de APIs y despliegue explican una arquitectura conceptual, sin invocar servicios externos.
+
+## Simulación cuántica
+
+La gráfica de pruebas usa un simulador mínimo local de un qubit en JavaScript: calcula las probabilidades de `Ry(π/2)|0⟩` y realiza 1.000 muestras con semilla 42. Es simulación ideal sin ruido, no una ejecución de Qiskit ni resultados de una QPU. El hardware real aparece como una etapa que requiere ejecución y comparación propias.
+
+## Editar
+
+- `src/slides-example.js`: contenido, diagramas, notas, tiempos y simulación de la nueva charla.
+- `src/story.css`: estilos de la nueva versión, aislados de la anterior.
+- `src/components/seeded-coin.js`: rutina ejecutada y proyectada en la demo.
+- `src/components/coin.js`: interacción y generador con estado persistente.
+- `src/slides.js`: presentación anterior conservada.
+- `src/styles.css` y `src/components/process-diagram.*`: estilos y procesos anteriores conservados.
+- `src/sources.js`: fuentes compartidas y nuevas referencias técnicas.
+- `docs/NUEVO-OUTLINE.md`: recorrido aprobado y mapa de reutilización.
+- `docs/GUION-EJEMPLO.md`: guion de la nueva versión.
+- `docs/GUION.md`, `docs/FUENTES.md`: documentación anterior conservada.
+- `docs/IMAGEN-APLICACIONES.md`: procedencia y prompt de la nueva ilustración.
+
+## Compilar y publicar
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Publicar el contenido de dist/ en la raíz de un servidor estático. No hace falta conectarse a servicios cuánticos: toda la charla funciona localmente después de instalar las dependencias.
+`dist/` contiene las dos versiones. El parámetro `version=referencia` también funciona en la compilación estática. Todas las demos e imágenes funcionan sin servicios cuánticos ni conexión externa.
 
-## GitHub Pages
-
-El workflow `.github/workflows/gh-pages.yml` instala las dependencias con `npm ci`, construye la presentación y publica únicamente `dist/` con las acciones oficiales de GitHub Pages. Se ejecuta al hacer push a `main` o manualmente desde Actions. Usa Node.js 22 y obtiene la ruta base de Pages para que los scripts, estilos e imágenes funcionen bajo el nombre del repositorio.
-
-En GitHub, abrir **Settings → Pages → Build and deployment → Source** y seleccionar **GitHub Actions**. Después de subir el workflow, el despliegue aparecerá en Actions. La dirección prevista es https://xthecapx.github.io/quantum-latino/.
-
-Para comprobar localmente la misma ruta:
+El workflow existente de GitHub Pages construye y publica `dist/` al hacer push a `main` o al ejecutarlo manualmente. Para probar la ruta del repositorio:
 
 ```bash
 npm run build -- --base /quantum-latino/
 npm run preview -- --base /quantum-latino/
 ```
 
-Abrir `http://localhost:4173/quantum-latino/`. Referencia: [despliegue de Vite en GitHub Pages](https://vite.dev/guide/static-deploy.html#github-pages).
-
-## Presentar
-
-- Flechas o espacio: avanzar.
-- Esc: vista general.
-- S: notas del ponente y cronómetro. Permitir ventanas emergentes.
-- F: pantalla completa.
-- B: ocultar la presentación momentáneamente.
-- Agregar ?print-pdf a la URL: vista para imprimir desde el navegador, sin diapositivas adicionales por fragmentos.
-
-14 diapositivas de contenido: diez de 2 minutos y cuatro de 1 minuto. Las dos vistas del datacenter comparten un bloque de 2 minutos. Más portada de 20 segundos, cuatro separadores de 5 segundos y cierre de 20 segundos: **25 minutos**. Son 20 diapositivas en total; las de título se pasan rápidamente. Reservar **5 minutos para preguntas**. Los tiempos están en data-timing y en las notas.
-
-## Editar
-
-- src/slides.js: texto, orden, notas y tiempo por diapositiva.
-- src/sources.js: enlaces y alcance de la evidencia.
-- src/styles.css: ajustes de tamaño y distribución; colores y tipografías heredados de serif y revelab.
-- public/assets/ibm-hpc-slurm-qiskit.png: diagrama de IBM proporcionado por el ponente, con artículo y roadmap enlazados.
-- public/assets/casa-computo-hibrido.png: casa con racks y routing desde CPU hacia GPU, HPC o QPU.
-- docs/GUION.md: recorrido y tiempos acumulados.
-- docs/FUENTES.md: fuentes primarias y límites de la búsqueda.
-- docs/IMAGEN.md: prompt de la imagen generada.
-- src/components/process-diagram.css: componente de diagramas CSS con variables de Revelab.
-- src/components/process-diagram.js: HTML editable de los procesos clásico y cuántico.
-- docs/DIAGRAMAS.md: uso y preparación para una futura incorporación a Revelab.
-
-Se conserva la estructura HTML de Reveal.js y se usan componentes de revelab como title-slide, divider, slide-content, table-research, diagram-flow y code-box. Se usa serif con el tema predeterminado de revelab, como en su ejemplo de componentes: fondo blanco, tipografía original y colores nativos. El CSS local ajusta únicamente la distribución y el tamaño del contenido.
-
-## Actualizar revelab
-
-```bash
-npm update revelab
-npm run build
-```
-
-Para una futura versión menor que no entre en el rango del package.json, instalarla explícitamente, por ejemplo npm install revelab@latest. Los componentes reutilizables se pueden desarrollar y publicar en revelap; este proyecto los consume desde npm. El archivo .npmrc fija el registro público y package-lock.json conserva las versiones instaladas.
-
-## Antes del evento
-
-Volver a comprobar las vacantes y actualizar su fecha de consulta en src/sources.js. Los enlaces visibles se actualizan desde esos datos. Las fechas de consulta y las referencias internas al PDF base se conservan como comentarios HTML y no se proyectan. Las ofertas son una muestra consultada el 13 y 14 de octubre de 2026, sin estimaciones del mercado ni garantía de elegibilidad geográfica. Los enlaces conservan los anuncios originales; los perfiles de las diapositivas se presentan sin nombres de empresas ni países.
+Abrir `/quantum-latino/` para la nueva versión o `/quantum-latino/?version=referencia` para la anterior. Este cambio no inicia una publicación ni hace push al repositorio.
