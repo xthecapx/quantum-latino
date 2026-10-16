@@ -19,7 +19,7 @@ Abrir la dirección local que muestra Vite:
 - **Imprimir la nueva versión:** `/?print-pdf`.
 - **Imprimir la anterior:** `/?version=referencia&print-pdf`.
 
-La nueva versión tiene 18 pantallas: portada sin tiempo de exposición, un separador, 15 de contenido y cierre. Son 25 minutos de charla y 5 adicionales de preguntas. Se omite la introducción personal y se comienza con aplicaciones. El separador «Veamos un ejemplo» introduce el problema de simular una moneda con palabras simples.
+La nueva versión tiene 19 pantallas: portada sin tiempo de exposición, un separador, 16 de contenido y cierre. Son 25 minutos de charla y 5 adicionales de preguntas. Se comienza con aplicaciones; la investigación personal se presenta antes del cierre, retomando el esquema cuántico y destacando el análisis de resultados. El separador «Veamos un ejemplo» introduce el problema de simular una moneda con palabras simples.
 
 La anterior conserva sus 20 pantallas, orden, notas, avances y contenido. `src/slides.js` permanece intacto. También se conservan `base.pdf`, `jd.pdf`, el guion y las fuentes anteriores. Su README original está en `docs/REFERENCIA-README.md`.
 
@@ -44,7 +44,7 @@ En la diapositiva “La semilla determina la secuencia”:
 
 Cada ejecución reinicia el generador una vez y produce cinco lanzamientos. El estado evoluciona dentro de la secuencia. No se reinicia antes de cada lanzamiento. La rutina es didáctica y no reproduce la implementación de `Math.random()`.
 
-El código visible se importa desde el mismo archivo que ejecuta la demo, en formato original para conservar su legibilidad después del build. La impresión incluye cinco secuencias sin requerir interacción previa.
+La diapositiva muestra pseudocódigo estilo JavaScript: iniciar(semilla), iterar(5 veces) y esCaraOsello(numeroGenerado). siguiente() oculta el cálculo del generador. Las fórmulas quedan en la implementación JavaScript, que sigue ejecutando la demo sin cambios. La impresión incluye cinco secuencias sin requerir interacción previa.
 
 Los botones de las diapositivas del ejemplo y de frontend funcionan localmente: la moneda sube y gira durante 2,6 segundos mientras aparece «Esperando el resultado». Al caer se lee «Resultado: Cara» o «Resultado: Sello». La demora representa la espera del backend y no hace una llamada de red real. No se permiten lanzamientos simultáneos y una tirada pendiente se cancela al salir de la diapositiva. El control «Animar» permite apagar el movimiento sin quitar la espera. La demo lo activa inicialmente para mostrar el lanzamiento solicitado. Los diagramas de APIs y despliegue explican una arquitectura conceptual, sin invocar servicios externos.
 
@@ -56,7 +56,7 @@ La gráfica de pruebas usa un simulador mínimo local de un qubit en JavaScript:
 
 - `src/slides-example.js`: contenido, diagramas, notas, tiempos y simulación de la nueva charla.
 - `src/story.css`: estilos de la nueva versión, aislados de la anterior.
-- `src/components/seeded-coin.js`: rutina ejecutada y proyectada en la demo.
+- `src/components/seeded-coin.js`: rutina JavaScript que ejecuta la demo. La diapositiva muestra su explicación en pseudocódigo.
 - `src/components/coin.js`: interacción y generador con estado persistente.
 - `src/slides.js`: presentación anterior conservada.
 - `src/styles.css` y `src/components/process-diagram.*`: estilos y procesos anteriores conservados.

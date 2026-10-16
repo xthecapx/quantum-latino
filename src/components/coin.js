@@ -1,5 +1,4 @@
 import { lanzarCinco } from './seeded-coin.js';
-import demoSource from './seeded-coin.js?raw';
 
 export { lanzarCinco };
 
@@ -15,10 +14,6 @@ export function crearGenerador(semilla) {
     return estado / 2 ** 32;
   };
 }
-
-// Este código se ejecuta en la demo y se proyecta sin una segunda implementación.
-// La importación raw conserva su legibilidad después de minificar el build.
-export const demoCode = demoSource.replace(/^export /m, '').trim();
 
 export function coinMarkup(value = 'Cara', extraClass = '') {
   return `<span class="coin ${value === 'Cara' ? 'coin-heads' : 'coin-tails'} ${extraClass}" aria-label="${value}"><span>${value === 'Cara' ? 'C' : 'S'}</span></span>`;
